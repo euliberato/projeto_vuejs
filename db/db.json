@@ -105,6 +105,28 @@
       ],
       "status": "Solicitado",
       "id": 2
+    },
+    {
+      "nome": "Ruan",
+      "carne": "Picanha",
+      "pao": "Parmesão e Orégano",
+      "opcionais": [
+        "Bacon",
+        "Tomate"
+      ],
+      "status": "Solicitado",
+      "id": 3
+    },
+    {
+      "nome": "Ruan",
+      "carne": "Maminha",
+      "pao": "3 Queijos",
+      "opcionais": [
+        "Bacon",
+        "Pepino"
+      ],
+      "status": "Solicitado",
+      "id": 4
     }
   ]
 }
