@@ -24,6 +24,7 @@
                 <div>
                     <select name="status" class="status">
                         <option value="">Selecione:</option>
+                        <option v-for="s in status" :key="s.id" value="s.tipo" :selected="burger.status == s.tipo"> {{ s.tipo }} </option>
                     </select>
                     <button class="delete-btn">Cancelar</button>
                 </div>
@@ -33,31 +34,33 @@
 </template>
 
 <script>
-export default {
+  export default {
     name: "Dashboard",
     data() {
-        return {
-            burgers: null,
-            burgers_id: null,
-            status: []
-        }
+      return {
+        burgers: null,
+        burger_id: null,
+        status: []
+      }
     },
     methods: {
-        async getPedidos() {
-
-            const req = await fetch('http://localhost:3000/burgers')
-
-            const data = await req.json();
-
-            this.burgers = data;
-
-            
-        }
+      async getPedidos() {
+        const req = await fetch('http://localhost:3000/burgers')
+        const data = await req.json()
+        this.burgers = data
+        // Resgata os status de pedidos
+        this.getStatus()
+      },
+      async getStatus() {
+        const req = await fetch('http://localhost:3000/status')
+        const data = await req.json()
+        this.status = data
+      }
     },
-    mounted() {
-        this.getPedidos();
+    mounted () {
+    this.getPedidos()
     }
-}
+  }
 </script>
 
 <style scoped>
@@ -81,15 +84,15 @@ export default {
 
     }
 
-    #burguer-table-heading div,
-    .burguer-table-row div {
-        width: 19%;
-    }
-
     .burguer-table-row {
         width: 100%;
         padding: 12px;
         border-bottom: 1px solid #ccc;
+    }
+
+    #burguer-table-heading div,
+    .burguer-table-row div {
+        width: 19%;
     }
 
     #burguer-table-heading .order-id, 
@@ -108,6 +111,7 @@ export default {
         font-weight: bold;
         border: 2px solid #222;
         padding: 10px;
+        font-size: 16px;
         margin: 0 auto;
         cursor: pointer;
         transition: .5s;
