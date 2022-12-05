@@ -81,5 +81,30 @@
       "tipo": "Finalizado"
     }
   ],
-  "burgers": []
+  "burgers": [
+    {
+      "nome": "João",
+      "carne": "Alcatra",
+      "pao": "3 Queijos",
+      "opcionais": [
+        "Bacon",
+        "Tomate",
+        "Pepino"
+      ],
+      "status": "Finalizado",
+      "id": 3
+    },
+    {
+      "nome": "Carlos",
+      "carne": "Maminha",
+      "pao": "Italiano Branco",
+      "opcionais": [
+        "Cheddar",
+        "Salame",
+        "Pepino"
+      ],
+      "status": "Solicitado",
+      "id": 4
+    }
+  ]
 }
